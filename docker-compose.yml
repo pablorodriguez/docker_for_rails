@@ -1,0 +1,29 @@
+version: '3'
+
+services:
+  web:
+    build: .
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/usr/src/app
+    env_file:
+      - .env/development/database
+      - .env/development/web
+    depends_on:
+      - database
+      - redis
+  redis:
+    image: redis
+
+  database:
+    image: postgres:9.6
+    ports:
+      - "5432:5432"
+    volumes:
+      - my_app_postgres_volume:/var/lib/postgresql/data
+    env_file:
+      - .env/development/database
+
+volumes:
+  my_app_postgres_volume:
