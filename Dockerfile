@@ -16,10 +16,15 @@ RUN echo "deb https://dl.yarnpkg.com/debian/ stable main" | \
 # Install packages
 RUN apt-get update -yqq && apt-get install -yqq --no-install-recommends yarn
 WORKDIR /usr/src/app
-
 COPY Gemfile* /usr/src/app/
+
+ENV BUNDLE_PATH /gems
+
 RUN bundle install
+
 
 COPY . /usr/src/app/
 
 CMD ["bin/rails", "s", "-b","0.0.0.0"]
+
+ENTRYPOINT ["./docker-entrypoint.sh"]

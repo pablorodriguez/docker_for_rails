@@ -8,6 +8,7 @@ services:
       - "4000:4000"
     volumes:
       - .:/usr/src/app
+      - gem_cache:/gems
     env_file:
       - .env/development/database
       - .env/development/web
@@ -24,6 +25,7 @@ services:
       - 3035:3035
     volumes:
       - .:/usr/src/app
+      - gem_cache:/gems
     env_file:
       - .env/development/web
       - .env/development/database
@@ -43,9 +45,10 @@ services:
     ports:
       - "5432:5432"
     volumes:
-      - my_app_postgres_volume:/var/lib/postgresql/data
+      - db_data:/var/lib/postgresql/data
     env_file:
       - .env/development/database
 
 volumes:
-  my_app_postgres_volume:
+  db_data:
+  gem_cache:
