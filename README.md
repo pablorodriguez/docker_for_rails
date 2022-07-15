@@ -1,7 +1,8 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a sample Rails application from Docker for Rails Developers (PragProg).
+It was generated using Docker without Ruby installed on the local machine.
+We're using the app to discover the wonderful world of Rails with Docker.
 
 Things you may want to cover:
 
