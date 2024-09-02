@@ -41,9 +41,9 @@ services:
     image: redis
 
   database:
-    image: postgres:9.6
+    image: postgres:16.4
     ports:
-      - "5432:5432"
+      - "5435:5432"
     volumes:
       - db_data:/var/lib/postgresql/data
     env_file:
