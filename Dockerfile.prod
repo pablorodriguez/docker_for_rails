@@ -18,7 +18,7 @@ RUN apt-get update -yqq && apt-get install -yqq --no-install-recommends yarn
 WORKDIR /usr/src/app
 COPY Gemfile* /usr/src/app/
 
-ENV BUNDLE_PATH /gems
+ENV BUNDLE_PATH=/gems
 
 RUN bundle install
 
